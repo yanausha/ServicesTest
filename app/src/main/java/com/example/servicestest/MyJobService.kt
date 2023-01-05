@@ -2,6 +2,7 @@ package com.example.servicestest
 
 import android.app.job.JobParameters
 import android.app.job.JobService
+import android.os.PersistableBundle
 import android.util.Log
 import kotlinx.coroutines.*
 
@@ -16,12 +17,11 @@ class MyJobService : JobService() {
 
     override fun onStartJob(params: JobParameters?): Boolean {
         log("onStartJob")
+        val page = params?.extras?.getInt(PAGE) ?: 0
         scope.launch {
-            for (page in 0..10) {
-                for (i in 0 until 5) {
-                    delay(1000)
-                    log("Page $page: timer $i")
-                }
+            for (i in 0 until 5) {
+                delay(1000)
+                log("Page $page: timer $i")
             }
             jobFinished(params, true)
         }
@@ -46,5 +46,12 @@ class MyJobService : JobService() {
     companion object {
 
         const val JOB_ID = 1
+        private const val PAGE = "page"
+
+        fun newBundle(page: Int): PersistableBundle {
+            return PersistableBundle().apply {
+                putInt(PAGE, page)
+            }
+        }
     }
 }
