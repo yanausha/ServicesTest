@@ -17,9 +17,11 @@ class MyJobService : JobService() {
     override fun onStartJob(params: JobParameters?): Boolean {
         log("onStartJob")
         scope.launch {
-            for (i in 0 until 100) {
-                delay(1000)
-                log("Timer: $i")
+            for (page in 0..10) {
+                for (i in 0 until 5) {
+                    delay(1000)
+                    log("Page $page: timer $i")
+                }
             }
             jobFinished(params, true)
         }
