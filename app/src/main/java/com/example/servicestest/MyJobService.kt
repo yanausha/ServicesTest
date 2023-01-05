@@ -15,7 +15,7 @@ class MyJobService : JobService() {
     }
 
     override fun onStartJob(params: JobParameters?): Boolean {
-        log("onStartCommand")
+        log("onStartJob")
         scope.launch {
             for (i in 0 until 100) {
                 delay(1000)
@@ -27,7 +27,8 @@ class MyJobService : JobService() {
     }
 
     override fun onStopJob(params: JobParameters?): Boolean {
-        TODO("Not yet implemented")
+        log("onStopJob")
+        return true
     }
 
     override fun onDestroy() {
