@@ -7,4 +7,5 @@
     <string name="intent_service">intent service</string>
     <string name="foreground_service">foreground service</string>
     <string name="service">service</string>
+    <string name="job_scheduler">job scheduler</string>
 </resources>

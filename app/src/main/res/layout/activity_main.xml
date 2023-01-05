@@ -28,7 +28,7 @@
         android:id="@+id/button_job_dispatcher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/job_dispatcher" />
+        android:text="@string/job_scheduler" />
 
     <Button
         android:id="@+id/button_job_intent_service"
