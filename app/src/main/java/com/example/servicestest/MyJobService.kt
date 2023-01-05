@@ -21,6 +21,7 @@ class MyJobService : JobService() {
                 delay(1000)
                 log("Timer: $i")
             }
+            jobFinished(params, true)
         }
         return true
     }
